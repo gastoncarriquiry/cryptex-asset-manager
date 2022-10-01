@@ -10,6 +10,7 @@ import GraphSell from "./components/GraphSell/GraphSell";
 import GraphsHub from "./components/GraphsHub/GraphsHub";
 import History from "./components/History/History";
 import IAAdvice from "./components/IAAdvice/IAAdvice";
+import IAOperations from "./components/IAOperations/IAOperations";
 import Login from "./components/Login/Login";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Register from "./components/Register/Register";
@@ -32,6 +33,7 @@ function App() {
             <Route path="history" element={<History />} />
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="bot" element={<IAAdvice />} />
+            <Route path="bot/operations" element={<IAOperations />} />
             <Route path="graphs" element={<GraphsHub />} />
             <Route path="graphs/b" element={<GraphBuy />} />
             <Route path="graphs/s" element={<GraphSell />} />

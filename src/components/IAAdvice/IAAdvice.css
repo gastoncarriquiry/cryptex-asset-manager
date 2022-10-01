@@ -1,0 +1,177 @@
+.ia-advice {
+    position: relative;
+    overflow: hidden;
+}
+
+.ia-advice .speech {
+    background-color: var(--text-color);
+    color: var(--content-background);
+    padding: 1em 1.5em;
+    box-sizing: border-box;
+    width: 70vw;
+    border-radius: 0.5rem;
+    border: 5px solid var(--primary-color);
+    box-shadow: 5px 5px 2px rgba(93, 129, 200, 0.8);
+    position: absolute;
+    left: 1em;
+    z-index: 2;
+    opacity: 0;
+    animation: fade-in 1.5s ease .4s normal forwards;
+}
+
+.ia-advice .speech h1 {
+    font-weight: 800;
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.ia-advice .speech p {
+    margin-bottom: 0.5em;
+    font-weight: 300;
+}
+
+.ia-advice .speech em {
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.ia-advice .speech strong,
+.ia-advice .speech strong em {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.ia-advice .speech h2 {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.ia-advice .speech::after {
+    content: "";
+    width: 1.2rem;
+    aspect-ratio: 1/1;
+    height: 1.2rem;
+    background-color: var(--primary-color);
+    position: absolute;
+    right: -2.4rem;
+    bottom: -1.4rem;
+    border-radius: 0.5rem;
+    transform: rotateZ(45deg);
+}
+
+.ia-advice .speech .button {
+    position: absolute;
+    bottom: -35%;
+    width: 100%;
+    left: 0;
+}
+
+.ia-advice .cryptex-bot {
+    position: absolute;
+    right: -12%;
+    transform-origin: bottom right;
+    bottom: 5%;
+    width: 40%;
+    animation: bounce-in .5s ease-out normal forwards;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .ia-advice .speech {
+        width: 50vw;
+        left: 10%;
+        top: 1em !important;
+        font-size: 14px;
+    }
+
+    .ia-advice .speech::after {
+        display: none;
+    }
+
+    .ia-advice .speech .button {
+        bottom: -40%;
+    }
+
+    .ia-advice .cryptex-bot {
+        right: -8% !important;
+        width: 35% !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .ia-advice .speech {
+        width: 70vw;
+        left: 1em;
+        top: 10%;
+    }
+
+    .ia-advice .speech .button {
+        bottom: -40%;
+    }
+
+    .ia-advice .cryptex-bot {
+        right: 7%;
+        bottom: -10%;
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .ia-advice .speech {
+        width: 40vw;
+        left: 10%;
+        top: 10%;
+    }
+
+    .ia-advice .speech .button {
+        bottom: -40%;
+    }
+
+    .ia-advice .cryptex-bot {
+        right: 7%;
+        bottom: -10%;
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .ia-advice .speech {
+        width: 40vw;
+        left: 10%;
+        top: 10%;
+    }
+
+    .ia-advice .speech .button {
+        bottom: -50%;
+    }
+
+    .ia-advice .cryptex-bot {
+        right: 15%;
+        bottom: -8%;
+        width: 30%;
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
