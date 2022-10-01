@@ -1,70 +1,68 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cryptex Asset Manager
 
-## Available Scripts
+Cryptocurrency investments are high-risk operations. Cryptex is an all-in-one crypto asset manager that ensures all your movements are safe.
 
-In the project directory, you can run:
+Cryptex allows users to buy and sell and control their investments. Cryptex also has an Artificial Intelligence bot integrated which suggests likely desirable actions based on the user's last operations.
 
-### `npm start`
+Disclaimer: Cryptex does not actually operates with cryptocurrencies. It consumes an API REST that provides the data needed. Cryptex will never ask for your personal information (other than those needed for registering) or your wallet information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![react/react-dom](https://img.shields.io/badge/react/react--dom-%5E18.2.0-9cf)](https://es.reactjs.org/docs/react-dom.html)
+[![react-router-dom](https://img.shields.io/badge/react--router--dom-%5E6.4.1-red)](https://reactrouter.com/en/main)
+[![react-redux](https://img.shields.io/badge/react--redux-%5E8.0.4-blueviolet)](https://es.redux.js.org/)
+[![react-chartjs-2](https://img.shields.io/badge/react--chartjs--2-%5E4.3.1-ff69b4)](https://react-chartjs-2.js.org/)
+[![react-toastify](https://img.shields.io/badge/react--toastify-%5E9.0.8-blueviolet)](https://fkhadra.github.io/react-toastify/introduction)
+[![react-icons](https://img.shields.io/badge/react--icons-%5E4.4.0-lightgrey)](https://react-icons.github.io/react-icons)
 
-### `npm test`
+## Live View
+[Running website](https://cryptexam.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run Locally
 
-### `npm run build`
+Clone the project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  git clone https://github.com/gastoncarriquiry/cryptex-asset-manager.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Go to the project directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  cd cryptex-asset-manager
+```
 
-### `npm run eject`
+Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start the server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Features
 
-## Learn More
+- Full responsive, correct visualization through any device
+- Single Page Application, all you need in one screen
+- Register / log in / log out
+- Buy/sell cryptocurrencies
+- Transaction history for each user
+- Investments overview
+- *Cryptex Bot*: I.A. that suggests possible actions for user's last operations
+- Graphs for bought/sold coins and for coin price at moment of operation
+- Light or Dark Theme
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
 
-### Code Splitting
+Gaston Carriquiry - [Contact me!](mailto:gastoncarriquiry@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://gastoncarriquiry.glitch.me/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/gastoncarriquiry)
