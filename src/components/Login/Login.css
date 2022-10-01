@@ -1,0 +1,200 @@
+.login-section {
+    grid-row: span 3;
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section .overlay.hidden {
+    display: none;
+}
+
+.login-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(231, 229, 223, 0.75);
+    backdrop-filter: blur(3px);
+}
+
+.login-section .form {
+    width: 90vw;
+    position: relative;
+    overflow: hidden;
+    height: max-content;
+    background-color: var(--text-color);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    box-sizing: border-box;
+    row-gap: 0.5em;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+.login-section .form .intro {
+    display: flex;
+    row-gap: 1.5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section .form .intro h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.3em;
+    color: var(--primary-color);
+    padding-bottom: 1rem;
+    width: 90%;
+    border-bottom: 1px solid var(--sidebar-background);
+}
+
+.login-section .form .intro h1 img {
+    width: 10%;
+}
+
+.login-section .form .intro h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.login-section .form .fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+    width: 100%;
+}
+
+.login-section .form .fieldset .input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    row-gap: 0.3em;
+}
+
+.login-section .form .fieldset .input label {
+    font-size: 0.825em;
+    margin-left: 0.3rem;
+}
+
+.login-section .form .fieldset .input input {
+    font-size: 1em;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    color: var(--content-background);
+    background-color: transparent;
+    border: 1px solid var(--content-background);
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+}
+
+.login-section .form .fieldset .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.login-section .form .fieldset .actions .btn {
+    margin-top: 1em;
+}
+
+.login-section .form .fieldset .actions p {
+    font-size: 0.8rem;
+}
+
+.login-section .form .fieldset .actions p a {
+    color: var(--primary-color);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .login-section .form {
+        width: 60vw;
+    }
+
+    .login-section .form .fieldset {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .login-section .form {
+        width: 60vw;
+        height: 90vh;
+        background-color: var(--text-color);
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em;
+        box-sizing: border-box;
+        row-gap: 0.5em;
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-section .form .intro {
+        row-gap: 0.5em;
+    }
+
+    .login-section .form .intro h1 {
+        padding-bottom: 0.5rem;
+        width: 70%;
+    }
+
+    .login-section .form .fieldset {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1em;
+        width: 80%;
+    }
+
+    .login-section .form .fieldset .actions .btn {
+        margin-top: 0.5em;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .login-section .form {
+        width: 50vw;
+    }
+
+    .login-section .form .fieldset {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .login-section .form {
+        width: 30vw;
+    }
+
+    .login-section .form .intro h1 {
+        width: 90%;
+    }
+
+    .login-section .form .fieldset {
+        width: 80%;
+    }
+}

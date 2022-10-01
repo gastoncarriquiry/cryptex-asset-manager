@@ -1,0 +1,184 @@
+.sidebar {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--sidebar-background);
+    box-sizing: border-box;
+    row-gap: 1em;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+}
+
+#root.dark .sidebar {
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, .2);
+}
+
+#root:not(.dark) .sidebar {
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, .2);
+}
+
+.app-logo {
+    display: none;
+}
+
+.sidebar .main-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.sidebar .main-nav a {
+    box-sizing: border-box;
+    text-decoration: none;
+    display: flex;
+    height: 10vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw/6);
+    color: var(--text-color);
+    font-size: 0.7rem;
+    background: none;
+    /* transition doesnt work */
+    transition: background-image 0.5s, color 0.3s;
+    font-weight: 500;
+    text-align: center;
+}
+
+.sidebar .main-nav a svg {
+    font-size: 1.2rem;
+}
+
+.sidebar .main-nav a:not(.active):hover {
+    background: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+#root:not(.dark) .sidebar .main-nav a:not(.active):hover {
+    background: rgba(0, 0, 0, 0.05);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.05) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.05) 100%);
+    background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.sidebar .main-nav a.active {
+    color: var(--primary-color);
+    font-weight: 700;
+    border-top: 4px solid var(--primary-color);
+    background-color: var(--sidebar-active);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .sidebar .main-nav a {
+        column-gap: 1.5em;
+        font-size: 1rem;
+    }
+
+    .sidebar .main-nav a svg {
+        font-size: 1.8rem;
+        margin-bottom: 0.2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .sidebar .main-nav a {
+        column-gap: 1.5em;
+        font-size: 0.6rem;
+
+    }
+
+    .sidebar .main-nav a svg {
+        font-size: 1rem;
+        margin-bottom: 0.1rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .sidebar {
+        grid-column: 1/2;
+        grid-row: span 2;
+        height: 100vh;
+        flex-direction: column;
+        padding-top: 2em;
+    }
+
+    .app-logo {
+        display: block;
+        text-align: center;
+    }
+
+    .sidebar .app-logo img {
+        width: 30%;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .2));
+        margin: auto;
+    }
+
+    .sidebar .main-nav {
+        flex-grow: 1;
+        flex-direction: column;
+    }
+
+    .sidebar .main-nav a {
+        padding: 1.5rem 1.5rem;
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        column-gap: 1.5em;
+        font-size: 1rem;
+    }
+
+    .sidebar .main-nav a.active {
+        border-top: none;
+        border-right: 4px solid var(--primary-color);
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .sidebar {
+        grid-column: 1/2;
+        grid-row: span 2;
+        height: 100vh;
+        flex-direction: column;
+        padding-top: 2em;
+    }
+
+    .app-logo {
+        display: block;
+        text-align: center;
+    }
+
+    .sidebar .app-logo img {
+        width: 30%;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .2));
+        margin: auto;
+    }
+
+    .sidebar .main-nav {
+        flex-grow: 1;
+        flex-direction: column;
+    }
+
+    .sidebar .main-nav a {
+        padding: 1.5em 2.5em;
+        height: auto;
+        flex-direction: row;
+        column-gap: 1.5em;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .sidebar .main-nav a.active {
+        border-top: none;
+        border-right: 4px solid var(--primary-color);
+    }
+}

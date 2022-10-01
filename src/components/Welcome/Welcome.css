@@ -1,0 +1,98 @@
+.welcome {
+    display: flex;
+    flex-direction: column;
+    padding: 2em 0;
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.welcome header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.welcome header img {
+    width: 15%;
+}
+
+.welcome h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.welcome h1 b {
+    color: var(--primary-color);
+}
+
+.welcome .text p {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome .text p a {
+    color: var(--primary-color);
+}
+
+.welcome .text p em {
+    color: var(--primary-color);
+}
+
+.welcome h2 {
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .welcome {
+        width: 70%;
+    }
+
+    .welcome header img {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .welcome {
+        width: 90%;
+    }
+
+    .welcome header img {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .welcome {
+        width: 70%;
+    }
+
+    .welcome header {
+        margin-bottom: 3rem;
+    }
+
+    .welcome header img {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .welcome {
+        width: 70%;
+    }
+
+    .welcome header {
+        margin-bottom: 3rem;
+    }
+
+    .welcome header img {
+        width: 10%;
+    }
+}

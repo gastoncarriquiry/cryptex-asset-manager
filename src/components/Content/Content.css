@@ -1,0 +1,40 @@
+.content-window {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    color: var(--text-color);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.content-window section {
+    min-height: calc(100vh - 20vh);
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .content-window {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .content-window section {
+        min-height: calc(100vh - 12vh);
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .content-window {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .content-window section {
+        min-height: calc(100vh - 12vh);
+    }
+
+}
