@@ -20,7 +20,7 @@ const Register = () => {
   useEffect(() => {
     let currentUser = localStorage.getItem("id");
     if (currentUser !== null) {
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     }
     // eslint-disable-next-line
   }, []);

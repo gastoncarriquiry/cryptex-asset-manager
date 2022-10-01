@@ -24,6 +24,7 @@ body {
   --sidebar-active: #dddddd;
   --primary-color: #5d81c8;
   --text-color: #1f1f1f;
+  --danger-color: #DB504A;
   background-color: var(--content-background);
   transition: all 0.5s;
 }
@@ -34,6 +35,7 @@ body {
   --sidebar-active: #434343;
   --primary-color: #5c90f8;
   --text-color: #e7e5df;
+  --danger-color: #DB504A;
   background-color: var(--content-background);
   transition: all 0.5s;
 }

@@ -39,10 +39,11 @@
 
 .header .user .user-dropdown {
     position: absolute;
-    bottom: -7.2em;
+    bottom: -10.5em;
     width: 30vw;
     height: max-content;
     transform: scaleY(0);
+    opacity: 0;
     max-height: 0;
     transform-origin: top;
     right: 0;
@@ -65,8 +66,27 @@
     padding: 1.2em;
 }
 
-.header .user .user-dropdown button:first-child {
-    border-bottom: 1px solid var(--text-color);
+.header .user .user-dropdown .log-out {
+    border-top: 1px solid var(--text-color);
+    cursor: pointer;
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+#root.dark .header .user .user-dropdown .log-out {
+    background-color: rgba(56, 56, 56, .3);
+}
+
+#root .header .user .user-dropdown .log-out {
+    background-color: rgba(207, 206, 202, 0.25);
+}
+
+.header .user .user-dropdown .log-out svg {
+    font-weight: 800;
+}
+
+.header .user .user-dropdown .log-out svg path {
+    fill: var(--danger-color);
 }
 
 .header .user .user-dropdown.retracted {
@@ -130,7 +150,15 @@
 
     .header .user .user-dropdown {
         width: 18vw;
+        bottom: -4em;
+    }
+
+    .header .user .user-dropdown .hide-d {
         display: none;
+    }
+
+    .header .user .user-dropdown .log-out {
+        border: none;
     }
 }
 
@@ -149,30 +177,49 @@
 
     .header .user .user-dropdown {
         width: 15vw;
+        bottom: -4em;
+    }
+
+    .header .user .user-dropdown .hide-d {
         display: none;
+    }
+
+    .header .user .user-dropdown .log-out {
+        border: none;
     }
 }
 
 @keyframes deploy-dropdown {
     0% {
+        opacity: 1;
+    }
+
+    1% {
         transform: scaleY(0);
         max-height: 0;
     }
 
     100% {
         transform: scaleY(1);
-        max-height: 8em;
+        max-height: 10.5em;
+        opacity: 1;
     }
 }
 
 @keyframes retract-dropdown {
     0% {
         transform: scaleY(1);
-        max-height: 8em;
+        max-height: 10.5em;
+        opacity: 1;
+    }
+
+    99% {
+        transform: scaleY(0);
+        max-height: 0;
+        opacity: 1;
     }
 
     100% {
-        transform: scaleY(0);
-        max-height: 0;
+        opacity: 0;
     }
 }
