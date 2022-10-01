@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import "./IAAdvice.css";
 
 const IAAdvice = () => {
+  document.title = "Cryptex Bot | Cryptex";
   let username = useSelector((state) => state.user.username);
 
   return (

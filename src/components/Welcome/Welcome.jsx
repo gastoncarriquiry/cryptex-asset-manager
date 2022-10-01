@@ -5,6 +5,7 @@ import "./Welcome.css";
 
 const Welcome = () => {
   let username = useSelector((state) => state.user.username);
+  document.title = "Inicio | Cryptex";
 
   return (
     <section className="welcome">

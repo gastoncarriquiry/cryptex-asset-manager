@@ -9,13 +9,14 @@ import Content from "../Content/Content";
 const Dashboard = () => {
   const navigate = useNavigate();
   let firstRender = 0;
+
   useEffect(() => {
-    if (firstRender === 0) navigate("/dashboard/home");
+    if (firstRender === 0) navigate("/dashboard/home", { replace: true });
     firstRender++;
 
     let currentUser = localStorage.getItem("id");
     if (currentUser === null) {
-      navigate("/");
+      navigate("/", { replace: true });
     }
     // eslint-disable-next-line
   }, []);

@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import "./GraphsHub.css";
 
 const GraphsHub = () => {
+  document.title = "Gráficas | Cryptex";
   return (
     <section className="graph-section">
       <div className="text">

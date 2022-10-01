@@ -17,6 +17,8 @@ const Login = () => {
   const user = useRef(null);
   const pass = useRef(null);
 
+  document.title = "Iniciar Sesión | Cryptex";
+
   useEffect(() => {
     let currentUser = localStorage.getItem("id");
     if (currentUser !== null) {

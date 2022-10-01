@@ -17,6 +17,8 @@ const Register = () => {
   const department = useRef(null);
   const city = useRef(null);
 
+  document.title = "Crear Cuenta | Cryptex";
+
   useEffect(() => {
     let currentUser = localStorage.getItem("id");
     if (currentUser !== null) {

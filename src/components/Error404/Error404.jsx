@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import "./Error404.css";
 
 const Error404 = () => {
+  document.title = "Error 404 | Cryptex";
   return (
     <section className="error404">
       <div>
