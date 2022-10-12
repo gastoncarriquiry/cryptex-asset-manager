@@ -92,18 +92,19 @@
 .register-section .form .fieldset .input label {
     font-size: 0.825em;
     margin-left: 0.3rem;
+    color: var(--content-background);
 }
 
 .register-section .form .fieldset .input input,
 .register-section .form .fieldset .input select {
-    font-size: 1em;
+    font-size: 0.9rem;
     outline: none;
     box-sizing: border-box;
     width: 100%;
     color: var(--content-background);
     background-color: transparent;
     border: 1px solid var(--content-background);
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
@@ -120,6 +121,7 @@
 
 .register-section .form .fieldset .actions p {
     font-size: 0.8rem;
+    color: var(--content-background);
 }
 
 .register-section .form .fieldset .actions p a {

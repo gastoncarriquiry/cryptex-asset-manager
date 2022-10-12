@@ -12,6 +12,8 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const [departments, setDepartments] = useState([]);
+  const [cities, setCities] = useState([]);
   const user = useRef(null);
   const pass = useRef(null);
   const department = useRef(null);
@@ -20,12 +22,27 @@ const Register = () => {
   document.title = "Crear Cuenta | Cryptex";
 
   useEffect(() => {
+    fetch("https://crypto.develotion.com/departamentos.php")
+      .then((r) => r.json())
+      .then((r) => {
+        setDepartments(r.departamentos);
+      });
+
     let currentUser = localStorage.getItem("id");
     if (currentUser !== null) {
       navigate("/dashboard", { replace: true });
     }
     // eslint-disable-next-line
   }, []);
+
+  const updateCityList = () => {
+    let departmentCode = department.current.value;
+    fetch(`https://crypto.develotion.com/ciudades.php?idDepartamento=${departmentCode}`)
+      .then((r) => r.json())
+      .then((r) => {
+        setCities(r.ciudades);
+      });
+  };
 
   const handleClick = () => {
     let username = user.current.value;
@@ -92,6 +109,20 @@ const Register = () => {
       .catch(console.log);
   };
 
+  const handleEmptyDepartment = () => {
+    if (department.current.value === "") {
+      return toast.warn("Primero seleccione un departamento por favor.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <section className="register-section">
       <div className="form">
@@ -115,14 +146,32 @@ const Register = () => {
           </div>
           <div className="input">
             <label htmlFor="department">Departamento</label>
-            <select id="department" ref={department}>
-              <option>1</option>
+            <select id="department" ref={department} onChange={updateCityList}>
+              <option defaultValue="" value="" disabled selected>
+                --Seleccione un departamento--
+              </option>
+              {departments
+                .sort((a, b) => a.nombre.localeCompare(b.nombre))
+                .map((department) => (
+                  <option key={department.id} value={department.id}>
+                    {department.nombre}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="input">
             <label htmlFor="city">Ciudad</label>
-            <select id="city" ref={city}>
-              <option>1</option>
+            <select id="city" ref={city} onClick={handleEmptyDepartment}>
+              <option defaultValue="" value="" disabled selected>
+                --Seleccione una ciudad--
+              </option>
+              {cities
+                .sort((a, b) => a.nombre.localeCompare(b.nombre))
+                .map((city) => (
+                  <option key={city.id} value={city.id}>
+                    {city.nombre}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="actions">
