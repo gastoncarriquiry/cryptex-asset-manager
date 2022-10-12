@@ -11,7 +11,7 @@ const IAAdvice = () => {
   return (
     <section className="ia-advice">
       <div className="speech">
-        <h1>¡Hola! {username ? <> {username}</> : ""}</h1>
+        <h1>¡Hola {username ? <> {username}</> : ""}!</h1>
         <p>
           Mi nombre es
           <strong>

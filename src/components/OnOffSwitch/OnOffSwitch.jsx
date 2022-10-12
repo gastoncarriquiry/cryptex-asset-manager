@@ -1,6 +1,9 @@
 import "./OnOffSwitch.css";
+import { useId } from "react";
 
 const OnOffSwitch = () => {
+  const onOffSwitch = useId();
+
   const changeTheme = () => {
     document.getElementById("root").classList.toggle("dark");
   };
@@ -11,12 +14,12 @@ const OnOffSwitch = () => {
         type="checkbox"
         name="onoffswitch"
         className="onoffswitch-checkbox"
-        id="myonoffswitch"
+        id={onOffSwitch}
         tabIndex="0"
         defaultChecked
         onChange={changeTheme}
       />
-      <label className="onoffswitch-label" htmlFor="myonoffswitch">
+      <label className="onoffswitch-label" htmlFor={onOffSwitch}>
         <span className="onoffswitch-inner"></span>
         <span className="onoffswitch-switch"></span>
       </label>

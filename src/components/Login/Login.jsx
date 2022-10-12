@@ -85,7 +85,7 @@ const Login = () => {
           });
         }
       })
-      .catch(console.log);
+      .catch(console.error);
   };
 
   const handleKeyUp = (e) => {
