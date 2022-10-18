@@ -1,0 +1,58 @@
+.history-section {
+    padding: 0 1em;
+    box-sizing: border-box;
+    height: 20vh !important;
+}
+
+.history-section h1 {
+    margin-bottom: 0.5rem;
+}
+
+.history-section table {
+    border-radius: 0.5rem;
+    border: 1px solid var(--text-color);
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+.history-section table thead {
+    background-color: var(--text-color);
+    color: var(--content-background);
+    font-size: 0.8rem;
+    height: 2rem;
+}
+
+.history-section table thead th {
+    border-right: 1px solid var(--content-background);
+    padding: 0 0.2rem;
+}
+
+.history-section table thead th:last-child {
+    border-right: none;
+}
+
+.history-section table tbody td {
+    border-top: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    text-align: center;
+    padding: 0.3rem 0;
+    font-size: 0.75rem;
+}
+
+.history-section table tbody tr {
+    height: 2.5rem;
+    background-color: var(--sidebar-active);
+}
+
+.history-section table tbody tr:nth-child(2n) {
+    background-color: var(--sidebar-background);
+}
+
+.history-section table tbody td.purchase {
+    color: var(--success-color);
+}
+
+.history-section table tbody td.sale {
+    color: var(--danger-color);
+}

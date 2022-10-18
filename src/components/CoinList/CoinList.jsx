@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { selectedCoin } from "../../features/transactionSlice";
+import { selectedCoin, coinList } from "../../features/transactionSlice";
 import "./CoinList.css";
 
 const CoinList = () => {
@@ -24,6 +24,8 @@ const CoinList = () => {
       .then((r) => r.json())
       .then((r) => {
         setCoins(r.monedas);
+        let coins = r.monedas.slice();
+        dispatch(coinList(coins));
       });
   }, [apiKey]);
 

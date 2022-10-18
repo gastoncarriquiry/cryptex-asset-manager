@@ -10,7 +10,6 @@
     box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.35);
     width: 80vw;
     border-radius: 0.5rem;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;

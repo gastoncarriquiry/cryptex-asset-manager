@@ -15,7 +15,7 @@ const Transactions = () => {
   const userId = localStorage.getItem("id");
 
   const processTransaction = () => {
-    if (selectedCoin?.id && ammount.current.value > 0) {
+    if (selectedCoin?.id && ammount.current.value && ammount.current.value > 0) {
       fetch(`https://crypto.develotion.com/transacciones.php`, {
         method: "POST",
         headers: {
@@ -38,12 +38,12 @@ const Transactions = () => {
               position: "bottom-right",
               autoClose: 5000,
               hideProgressBar: false,
+              toastId: 1,
               closeOnClick: true,
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
             });
-            //TODO:
           } else {
             toast.error("¡Oh no! Algo salió mal. Inténtelo de nuevo más tarde.", {
               position: "bottom-right",
@@ -76,12 +76,16 @@ const Transactions = () => {
         <div className="operation-type">
           <label htmlFor="opType">Tipo de operación:</label>
           <select id="opType" ref={operationType}>
-            <option defaultValue={1}>Compra</option>
-            <option defaultValue={2}>Venta</option>
+            <option defaultValue={1} value={1}>
+              Compra
+            </option>
+            <option defaultValue={2} value={2}>
+              Venta
+            </option>
           </select>
         </div>
         <div className="coin-selection">
-          <input type="number" defaultValue={0} placeholder="0" ref={ammount} />
+          <input type="number" placeholder="0" ref={ammount} />
           <CoinList />
         </div>
         {selectedCoin?.id ? (

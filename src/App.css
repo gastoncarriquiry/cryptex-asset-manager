@@ -25,6 +25,7 @@ body {
   --primary-color: #5d81c8;
   --text-color: #1f1f1f;
   --danger-color: #DB504A;
+  --success-color: #4adb4c;
   background-color: var(--content-background);
   transition: all 0.5s;
 }
@@ -36,6 +37,7 @@ body {
   --primary-color: #5c90f8;
   --text-color: #e7e5df;
   --danger-color: #DB504A;
+  --success-color: #4adb4c;
   background-color: var(--content-background);
   transition: all 0.5s;
 }
