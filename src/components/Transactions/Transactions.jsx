@@ -27,7 +27,7 @@ const Transactions = () => {
           idUsuario: userId,
           tipoOperacion: operationType.current.value,
           moneda: selectedCoin.id,
-          cantidad: ammount.current.value,
+          cantidad: Math.round(ammount.current.value),
           valorActual: selectedCoin.value,
         }),
       })
