@@ -22,7 +22,7 @@
 
 #root .btn.primary:hover {
     box-shadow: none;
-    transform: scale(1.05);
+    transform: scaleX(1.05) scaleY(1.05);
 }
 
 .btn:disabled {

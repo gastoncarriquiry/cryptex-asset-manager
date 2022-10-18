@@ -1,0 +1,75 @@
+.transactions-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.transactions-section>div {
+    background-color: var(--sidebar-background);
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.35);
+    width: 80vw;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 0.5rem;
+    padding: 2em 1.5em;
+    box-sizing: border-box;
+}
+
+.transactions-section>div .operation-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.transactions-section>div .operation-type label {
+    margin-left: 0.3rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.9rem;
+}
+
+.transactions-section>div #opType {
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    border: none;
+    font-family: var(--main-font);
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.transactions-section>div .coin-selection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    background-color: var(--text-color);
+    border-radius: 0.5rem;
+}
+
+.transactions-section>div .coin-selection input[type=number] {
+    appearance: textfield;
+    height: 100%;
+    width: 50%;
+    margin-right: 0.5rem;
+    background-color: transparent;
+    border: none;
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    color: var(--content-background);
+    outline: none;
+}
+
+.transactions-section>div .coin-value h3 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.transactions-section>div .coin-value p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
