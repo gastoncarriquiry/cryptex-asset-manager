@@ -19,3 +19,53 @@
     color: var(--text-color);
     padding: 0.3rem 0.5rem;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .graph-coins {
+        padding: 2em 4em;
+    }
+
+    .graph-coins select {
+        margin-bottom: 3em;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .graph-coins {
+        padding: 1em 3em;
+    }
+
+    .graph-coins canvas {
+        width: 80% !important;
+        height: auto !important;
+        margin: auto !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .graph-coins {
+        padding: 1em 3em;
+    }
+
+    .graph-coins canvas {
+        width: 80% !important;
+        height: auto !important;
+        margin: auto !important;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .graph-coins {
+        padding: 0 3em;
+    }
+
+    .graph-coins select {
+        margin-bottom: 0em;
+    }
+
+    .graph-coins canvas {
+        width: 70% !important;
+        height: auto !important;
+        margin: auto !important;
+    }
+}

@@ -19,6 +19,7 @@
     padding: 0.5rem 0;
     color: var(--text-color);
     border: none;
+    box-sizing: border-box;
 }
 
 .combobox .listbox.open {
@@ -65,4 +66,76 @@
 
 .combobox .listbox .coin:last-child {
     border-bottom: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .combobox .listbox .coin img {
+        width: 15%;
+    }
+
+    .combobox .listbox.open {
+        max-height: 12rem;
+    }
+
+    .combobox {
+        width: auto;
+    }
+
+    .combobox input {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .combobox .listbox .coin img {
+        width: 15%;
+    }
+
+    .combobox .listbox.open {
+        max-height: 6rem;
+    }
+
+    .combobox {
+        width: auto;
+    }
+
+    .combobox input {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .combobox .listbox .coin img {
+        width: 15%;
+    }
+
+    .combobox .listbox.open {
+        max-height: 15rem;
+    }
+
+    .combobox {
+        width: auto;
+    }
+
+    .combobox input {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .combobox .listbox .coin img {
+        width: 15%;
+    }
+
+    .combobox .listbox.open {
+        max-height: 15rem;
+    }
+
+    .combobox {
+        width: auto;
+    }
+
+    .combobox input {
+        padding: 0.5rem 1rem;
+    }
 }

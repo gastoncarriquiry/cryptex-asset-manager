@@ -18,7 +18,7 @@
 .header .secondary-nav a {
     padding: 0.5rem 0.5rem;
     color: var(--primary-color);
-    font-size: 1.1em;
+    font-size: 1em;
     text-decoration: none;
     transition: border-bottom 0.3s;
     border-bottom: 2px solid transparent;
@@ -61,6 +61,10 @@
         column-gap: 1em;
     }
 
+    .header .secondary-nav a {
+        font-size: 1.1em;
+    }
+
 }
 
 @media only screen and (min-width: 1281px) {
@@ -74,4 +78,7 @@
         column-gap: 1em;
     }
 
+    .header .secondary-nav a {
+        font-size: 1.1em;
+    }
 }

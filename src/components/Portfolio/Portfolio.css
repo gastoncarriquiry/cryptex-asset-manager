@@ -63,3 +63,83 @@
 .section-portfolio .details div.sales p {
     color: var(--danger-color);
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .section-portfolio h2 {
+        font-size: 3rem;
+    }
+
+    .section-portfolio small {
+        width: 75%;
+        font-size: 1rem;
+    }
+
+    .section-portfolio .details h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .section-portfolio .details p {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .section-portfolio {
+        justify-content: center;
+        margin-top: -3em;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .section-portfolio {
+        justify-content: center;
+        margin-top: -3em;
+    }
+
+    .section-portfolio h2 {
+        font-size: 3rem;
+    }
+
+    .section-portfolio small {
+        width: 50%;
+        font-size: 0.9rem;
+    }
+
+    .section-portfolio .details h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .section-portfolio .details p {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .section-portfolio {
+        justify-content: center;
+        margin-top: -3em;
+    }
+
+    .section-portfolio h2 {
+        font-size: 3rem;
+    }
+
+    .section-portfolio small {
+        width: 50%;
+        font-size: 0.9rem;
+    }
+
+    .section-portfolio .details h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .section-portfolio .details p {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}

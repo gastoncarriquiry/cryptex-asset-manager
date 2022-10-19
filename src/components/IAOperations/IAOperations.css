@@ -89,3 +89,101 @@
     flex-direction: column;
     row-gap: 0.5rem;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .ia-suggestions-section {
+        padding: 0 5em;
+    }
+
+    .ia-suggestions-section h1 {
+        text-align: center;
+    }
+
+    .ia-suggestions-section .suggestion {
+        width: 75%;
+    }
+
+    .ia-suggestions-section .buttons {
+        flex-direction: row;
+        column-gap: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .ia-suggestions-section .suggestion {
+        width: 50%;
+    }
+
+    .ia-suggestions-section .suggestions-container {
+        max-height: 65vh;
+    }
+
+    .ia-suggestions-section .buttons {
+        flex-direction: row;
+        column-gap: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .ia-suggestions-section {
+        padding: 0 3em;
+    }
+
+    .ia-suggestions-section .suggestions-container {
+        margin-top: 7rem;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        max-height: auto;
+        column-gap: 1rem;
+    }
+
+    .ia-suggestions-section .cryptex-bot {
+        width: 20%;
+        position: fixed;
+        bottom: -8%;
+        right: -3%;
+    }
+
+    .ia-suggestions-section .suggestion {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ia-suggestions-section .buttons {
+        flex-direction: row;
+        column-gap: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .ia-suggestions-section {
+        padding: 0 3em;
+    }
+
+    .ia-suggestions-section .suggestions-container {
+        margin-top: 7rem;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        max-height: auto;
+        column-gap: 1rem;
+    }
+
+    .ia-suggestions-section .cryptex-bot {
+        width: 15%;
+        position: fixed;
+        bottom: -10%;
+        right: -4%;
+    }
+
+    .ia-suggestions-section .suggestion {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ia-suggestions-section .buttons {
+        flex-direction: row;
+        column-gap: 0.5rem;
+    }
+}

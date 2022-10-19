@@ -1,6 +1,6 @@
 import { Orbit } from "@uiball/loaders";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addTransaction, transactionsReducer } from "../../features/transactionSlice";
@@ -13,6 +13,7 @@ const IAOperations = () => {
   const userId = localStorage.getItem("id");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const transactionsList = useSelector((state) => state.transaction.transactions);
   const [isLoading, setIsLoading] = useState(false);
   const [updatedCoins, setUpdatedCoins] = useState([]);
   const [transactions, setTransactions] = useState([]);
@@ -20,6 +21,7 @@ const IAOperations = () => {
   const [fetchTrigger, setFetchTrigger] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`https://crypto.develotion.com/monedas.php`, {
       method: "GET",
       headers: {
@@ -32,21 +34,26 @@ const IAOperations = () => {
       .then((r) => {
         let coins = r.monedas.slice();
         setUpdatedCoins(coins);
-        fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
-          headers: {
-            apikey: apiKey,
-            "Content-Type": "application/json",
-          },
-        })
-          .then((r) => r.json())
-          .then((r) => {
-            if (r.codigo === 200) {
-              dispatch(transactionsReducer(r.transacciones));
-              setTransactions(r.transacciones);
-            }
+        if (transactionsList.length === 0 || fetchTrigger === 0) {
+          fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
+            headers: {
+              apikey: apiKey,
+              "Content-Type": "application/json",
+            },
           })
-          .catch(console.error);
-        compareData();
+            .then((r) => r.json())
+            .then((r) => {
+              if (r.codigo === 200) {
+                let transactions = r.transacciones.slice();
+                setTransactions(transactions);
+                dispatch(transactionsReducer(r.transacciones));
+              }
+            })
+            .then(() => compareData(transactions))
+            .catch(console.error);
+        } else {
+          compareData(transactionsList);
+        }
       })
       .catch(console.error);
   }, [fetchTrigger]);
@@ -55,7 +62,8 @@ const IAOperations = () => {
     setFetchTrigger(!fetchTrigger);
   }, 300000);
 
-  const compareData = () => {
+  const compareData = (transactions) => {
+    setIsLoading(false);
     let count = 0;
     let checkedCoins = [];
     let lastTransactions = [];
