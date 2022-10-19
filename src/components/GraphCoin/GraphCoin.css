@@ -1,0 +1,21 @@
+.graph-coins {
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graph-coins h1 {
+    margin-bottom: 0.5rem;
+}
+
+.graph-coins select {
+    margin: 1em auto;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.3rem 0.5rem;
+}

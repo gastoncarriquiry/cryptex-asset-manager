@@ -88,6 +88,7 @@ const Transactions = () => {
     <section className="transactions-section">
       <div>
         <div className="operation-type">
+          {/* TODO: change this select for two buttons */}
           <label htmlFor="opType">Tipo de operación:</label>
           <select id="opType" ref={operationType}>
             <option defaultValue={1} value={1}>
