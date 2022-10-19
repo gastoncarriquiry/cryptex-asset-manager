@@ -8,7 +8,7 @@
     color: var(--content-background);
     padding: 1em 1.5em;
     box-sizing: border-box;
-    width: 70vw;
+    width: 75vw;
     border-radius: 0.5rem;
     border: 5px solid var(--primary-color);
     box-shadow: 5px 5px 2px rgba(93, 129, 200, 0.8);
@@ -70,7 +70,7 @@
     position: absolute;
     right: -12%;
     transform-origin: bottom right;
-    bottom: 5%;
+    bottom: 0;
     width: 40%;
     animation: bounce-in .5s ease-out normal forwards;
 }
