@@ -15,23 +15,23 @@ const Portfolio = () => {
   const transactionList = useSelector((state) => state.transaction.transactions);
 
   useEffect(() => {
-    let totalPurchased = 0;
-    let totalSold = 0;
+    let totalP = 0;
+    let totalS = 0;
     let total = 0;
     if (transactionList.length !== 0) {
       transactionList.forEach((transaction) => {
         let totalAmmount = transaction.valorActual * transaction.cantidad;
         if (transaction.tipoOperacion === 1) {
-          totalPurchased += totalAmmount;
+          totalP += totalAmmount;
           total += totalAmmount;
         } else {
-          totalSold += totalAmmount;
+          totalS += totalAmmount;
           total -= totalAmmount;
         }
       });
       setTotalInvested(total);
-      setTotalPurchase(totalPurchased);
-      setTotalSales(totalSold);
+      setTotalPurchase(totalP);
+      setTotalSales(totalS);
     } else {
       setIsLoading(true);
       fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
@@ -46,15 +46,15 @@ const Portfolio = () => {
             r.transacciones.forEach((transaction) => {
               let totalAmmount = transaction.valorActual * transaction.cantidad;
               if (transaction.tipoOperacion === 1) {
-                totalPurchased += totalAmmount;
+                totalP += totalAmmount;
                 total += totalAmmount;
               } else {
-                totalSold += totalAmmount;
+                totalS += totalAmmount;
                 total -= totalAmmount;
               }
               setTotalInvested(total);
-              setTotalPurchase(totalPurchased);
-              setTotalSales(totalSold);
+              setTotalPurchase(totalP);
+              setTotalSales(totalS);
             });
           } else {
             toast.error(

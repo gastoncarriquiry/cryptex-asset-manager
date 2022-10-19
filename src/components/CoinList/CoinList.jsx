@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectedCoin, coinList } from "../../features/transactionSlice";
 import "./CoinList.css";
 
@@ -11,23 +11,29 @@ const CoinList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCoins, setFilteredCoins] = useState([]);
   const dispatch = useDispatch();
+  const storedCoins = useSelector((state) => state.transaction.coinList);
 
   useEffect(() => {
-    fetch(`https://crypto.develotion.com/monedas.php`, {
-      method: "GET",
-      headers: {
-        apikey: apiKey,
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-    })
-      .then((r) => r.json())
-      .then((r) => {
-        setCoins(r.monedas);
-        let coins = r.monedas.slice();
-        dispatch(coinList(coins));
-      });
-  }, [apiKey]);
+    if (storedCoins.length === 0) {
+      fetch(`https://crypto.develotion.com/monedas.php`, {
+        method: "GET",
+        headers: {
+          apikey: apiKey,
+          "Content-Type": "application/json",
+        },
+        redirect: "follow",
+      })
+        .then((r) => r.json())
+        .then((r) => {
+          setCoins(r.monedas);
+          let coins = r.monedas.slice();
+          dispatch(coinList(coins));
+        });
+    } else {
+      let coins = storedCoins.slice();
+      setCoins(coins);
+    }
+  }, [apiKey, storedCoins]);
 
   const searchResults = () => {
     setSearchQuery(query.current.value);

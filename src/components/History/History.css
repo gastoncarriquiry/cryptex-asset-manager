@@ -61,6 +61,11 @@
 .history-section table tbody tr {
     height: 2.5rem;
     background-color: var(--sidebar-active);
+    transition: background-color 0.2s;
+}
+
+.history-section table tbody tr:hover {
+    background-color: var(--primary-color) !important;
 }
 
 .history-section table tbody tr:nth-child(2n) {
