@@ -4,7 +4,6 @@ const initialState = {
   username: undefined,
 };
 
-//IMMER
 export const userSlice = createSlice({
   name: "user",
   initialState,

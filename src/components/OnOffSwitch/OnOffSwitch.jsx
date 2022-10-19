@@ -1,5 +1,5 @@
-import "./OnOffSwitch.css";
 import { useId } from "react";
+import "./OnOffSwitch.css";
 
 const OnOffSwitch = () => {
   const onOffSwitch = useId();

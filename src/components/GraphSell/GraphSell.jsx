@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
-import "./GraphSell.css";
-import { coinList } from "../../features/transactionSlice";
-import { toast } from "react-toastify";
 import { Orbit } from "@uiball/loaders";
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
+import { useEffect, useState } from "react";
+import { Pie } from "react-chartjs-2";
+import { useSelector } from "react-redux";
+import "./GraphSell.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

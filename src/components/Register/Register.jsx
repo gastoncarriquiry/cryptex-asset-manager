@@ -1,12 +1,12 @@
+import { Orbit } from "@uiball/loaders";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { defineUser } from "../../features/userSlice";
 import { logo } from "../../utils/utils";
 import Button from "../Button/Button";
 import "./Register.css";
-import { defineUser } from "../../features/userSlice";
-import { useDispatch } from "react-redux";
-import { Orbit } from "@uiball/loaders";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +26,8 @@ const Register = () => {
       .then((r) => r.json())
       .then((r) => {
         setDepartments(r.departamentos);
-      });
+      })
+      .catch(console.error);
 
     let currentUser = localStorage.getItem("id");
     if (currentUser !== null) {
@@ -41,7 +42,8 @@ const Register = () => {
       .then((r) => r.json())
       .then((r) => {
         setCities(r.ciudades);
-      });
+      })
+      .catch(console.error);
   };
 
   const handleClick = () => {
@@ -106,7 +108,7 @@ const Register = () => {
           });
         }
       })
-      .catch(console.log);
+      .catch(console.error);
   };
 
   const handleEmptyDepartment = () => {

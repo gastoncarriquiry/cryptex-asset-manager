@@ -1,7 +1,6 @@
 import { Orbit } from "@uiball/loaders";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import "./Portfolio.css";
 
 const Portfolio = () => {

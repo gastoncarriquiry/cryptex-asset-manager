@@ -1,5 +1,5 @@
-import "./Content.css";
 import { Outlet } from "react-router-dom";
+import "./Content.css";
 
 const Content = () => {
   return (

@@ -6,7 +6,6 @@ const initialState = {
   transactions: [],
 };
 
-//IMMER
 export const transactionSlice = createSlice({
   name: "transaction",
   initialState,

@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedCoin, coinList } from "../../features/transactionSlice";
+import { selectedCoin } from "../../features/transactionSlice";
 import "./CoinList.css";
 
 const CoinList = () => {
-  const apiKey = localStorage.getItem("key");
   const query = useRef(null);
   const [coins, setCoins] = useState([]);
   const [open, setOpen] = useState(false);

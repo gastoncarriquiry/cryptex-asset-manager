@@ -1,8 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
 import { CgBot, CgChart, CgList, CgSwap, CgTemplate, CgTrending } from "react-icons/cg";
-import "./Sidebar.css";
+import { Link, NavLink } from "react-router-dom";
 import { logo } from "../../utils/utils";
 import SidebarActions from "../SidebarActions/SidebarActions";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   return (

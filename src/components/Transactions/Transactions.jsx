@@ -1,11 +1,11 @@
-import CoinList from "../CoinList/CoinList";
-import Button from "../Button/Button";
-import "./Transactions.css";
+import { Orbit } from "@uiball/loaders";
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addTransaction } from "../../features/transactionSlice";
-import { Orbit } from "@uiball/loaders";
+import Button from "../Button/Button";
+import CoinList from "../CoinList/CoinList";
+import "./Transactions.css";
 
 const Transactions = () => {
   document.title = "Operar | Cryptex";

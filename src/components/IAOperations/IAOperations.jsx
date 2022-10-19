@@ -1,12 +1,12 @@
-import "./IAOperations.css";
-import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
-import { cryptexBot } from "../../utils/utils";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTransaction, transactionsReducer } from "../../features/transactionSlice";
-import { toast } from "react-toastify";
 import { Orbit } from "@uiball/loaders";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { addTransaction, transactionsReducer } from "../../features/transactionSlice";
+import { cryptexBot } from "../../utils/utils";
+import Button from "../Button/Button";
+import "./IAOperations.css";
 
 const IAOperations = () => {
   const apiKey = localStorage.getItem("key");
@@ -44,9 +44,11 @@ const IAOperations = () => {
               dispatch(transactionsReducer(r.transacciones));
               setTransactions(r.transacciones);
             }
-          });
+          })
+          .catch(console.error);
         compareData();
-      });
+      })
+      .catch(console.error);
   }, [fetchTrigger]);
 
   setInterval(() => {
@@ -126,7 +128,8 @@ const IAOperations = () => {
             progress: undefined,
           });
         }
-      });
+      })
+      .catch(console.error);
   };
 
   return (

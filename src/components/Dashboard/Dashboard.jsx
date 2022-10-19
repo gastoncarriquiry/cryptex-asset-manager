@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import "./Dashboard.css";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { coinList, transactionsReducer } from "../../features/transactionSlice";
+import Content from "../Content/Content";
+import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Dashboard.css";
-import Header from "../Header/Header";
-import Content from "../Content/Content";
-import { useDispatch } from "react-redux";
-import { coinList, transactionsReducer } from "../../features/transactionSlice";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -27,7 +26,8 @@ const Dashboard = () => {
         if (r.codigo === 200) {
           dispatch(transactionsReducer(r.transacciones));
         }
-      });
+      })
+      .catch(console.error);
 
     fetch(`https://crypto.develotion.com/monedas.php`, {
       method: "GET",
@@ -40,7 +40,8 @@ const Dashboard = () => {
       .then((r) => r.json())
       .then((r) => {
         dispatch(coinList(r.monedas));
-      });
+      })
+      .catch(console.error);
 
     if (firstRender === 0) navigate("/dashboard/home", { replace: true });
     firstRender++;

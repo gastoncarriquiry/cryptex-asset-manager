@@ -1,15 +1,12 @@
+import { Orbit } from "@uiball/loaders";
 import { useEffect, useState } from "react";
-import { transactionsReducer } from "../../features/transactionSlice";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import "./History.css";
-import { Orbit } from "@uiball/loaders";
 
 const History = () => {
   document.title = "Historial | Cryptex";
-  const dispatch = useDispatch();
   const [transactions, setTransactions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const userId = localStorage.getItem("id");
