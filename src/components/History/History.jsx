@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { transactionsReducer } from "../../features/transactionSlice";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "./History.css";
+import { Orbit } from "@uiball/loaders";
 
 const History = () => {
   document.title = "Historial | Cryptex";
+  const dispatch = useDispatch();
   const [transactions, setTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const userId = localStorage.getItem("id");
   const apiKey = localStorage.getItem("key");
   const transactionList = useSelector((state) => state.transaction.transactions);
@@ -16,6 +19,7 @@ const History = () => {
 
   useEffect(() => {
     if (transactionList.length === 0) {
+      setIsLoading(true);
       fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
         headers: {
           apikey: apiKey,
@@ -58,7 +62,7 @@ const History = () => {
                 });
             }
             let transactions = r.transacciones.slice();
-            dispatchEvent(transactionsReducer(transactions));
+            dispatch(transactionsReducer(transactions));
           } else {
             toast.error(
               "¡Oh no! No pudimos recuperar sus transacciones. Inténtelo de nuevo más tarde.",
@@ -73,7 +77,8 @@ const History = () => {
               }
             );
           }
-        });
+        })
+        .finally(setIsLoading(false));
     } else {
       if (coinList.length > 1) {
         setTransactions(
@@ -113,38 +118,44 @@ const History = () => {
   return (
     <section className="history-section">
       <h1>Historial de transacciones</h1>
-      {transactions.length === 0 ? (
-        <div className="empty">
-          <h2>Aún no ha realizado ninguna operación.</h2>
-          <Link to="/dashboard/transactions">
-            <Button children="Ir a Operar" type="primary" />
-          </Link>
-        </div>
+      {isLoading ? (
+        <Orbit size={40} speed={1.5} color="#5d81c8" />
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Ref.</th>
-              <th>Operación</th>
-              <th>Moneda</th>
-              <th>Cotización</th>
-              <th>Unidades</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((transaction) => (
-              <tr key={transaction.id}>
-                <td>{transaction.id}</td>
-                <td className={transaction.tipoOperacion === 1 ? "purchase" : "sale"}>
-                  {transaction.tipoOperacion === 1 ? "Compra" : "Venta"}
-                </td>
-                <td>{transaction.moneda}</td>
-                <td>${transaction.valorActual}</td>
-                <td>{transaction.cantidad}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <>
+          {transactions.length === 0 ? (
+            <div className="empty">
+              <h2>Aún no ha realizado ninguna operación.</h2>
+              <Link to="/dashboard/transactions">
+                <Button children="Ir a Operar" type="primary" />
+              </Link>
+            </div>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>Ref.</th>
+                  <th>Operación</th>
+                  <th>Moneda</th>
+                  <th>Cotización</th>
+                  <th>Unidades</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>{transaction.id}</td>
+                    <td className={transaction.tipoOperacion === 1 ? "purchase" : "sale"}>
+                      {transaction.tipoOperacion === 1 ? "Compra" : "Venta"}
+                    </td>
+                    <td>{transaction.moneda}</td>
+                    <td>${transaction.valorActual}</td>
+                    <td>{transaction.cantidad}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </>
       )}
     </section>
   );

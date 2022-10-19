@@ -1,0 +1,65 @@
+.section-portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.section-portfolio h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.section-portfolio h2 {
+    font-size: 2.5rem;
+}
+
+.section-portfolio h2.positive {
+    color: var(--success-color);
+}
+
+.section-portfolio h2.negative {
+    color: var(--danger-color);
+}
+
+.section-portfolio small {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+.section-portfolio .details {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+.section-portfolio .details div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.3rem;
+}
+
+.section-portfolio .details h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.section-portfolio .details p {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.section-portfolio .details div.purchases p {
+    color: var(--success-color);
+}
+
+.section-portfolio .details div.sales p {
+    color: var(--danger-color);
+}
