@@ -1,14 +1,16 @@
 import CoinList from "../CoinList/CoinList";
 import Button from "../Button/Button";
 import "./Transactions.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addTransaction } from "../../features/transactionSlice";
+import { Orbit } from "@uiball/loaders";
 
 const Transactions = () => {
   document.title = "Operar | Cryptex";
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const ammount = useRef(null);
   const operationType = useRef(null);
   const selectedCoin = useSelector((state) => state.transaction.coin);
@@ -18,6 +20,7 @@ const Transactions = () => {
 
   const processTransaction = () => {
     if (selectedCoin?.id && ammount.current.value && ammount.current.value > 0) {
+      setIsLoading(true);
       fetch(`https://crypto.develotion.com/transacciones.php`, {
         method: "POST",
         headers: {
@@ -58,6 +61,7 @@ const Transactions = () => {
               );
             }
             ammount.current.value = "";
+            setIsLoading(false);
           } else {
             toast.error("¡Oh no! Algo salió mal. Inténtelo de nuevo más tarde.", {
               position: "bottom-right",
@@ -114,7 +118,19 @@ const Transactions = () => {
         ) : (
           <></>
         )}
-        <Button children="Realizar transacción" type="primary" onClick={processTransaction} />
+        <Button
+          children="Realizar transacción"
+          type="primary"
+          onClick={processTransaction}
+          disabled={isLoading}
+        />
+        {isLoading ? (
+          <div className="loader">
+            <Orbit size={30} speed={1.5} color="#5d81c8" />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </section>
   );

@@ -2,6 +2,10 @@
     padding: 2em 1em;
 }
 
+.graph-sell>div {
+    margin: auto;
+}
+
 .graph-sell h1 {
     margin-bottom: 0.5rem;
 }

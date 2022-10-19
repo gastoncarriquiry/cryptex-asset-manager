@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.history-section>div {
+    margin: auto;
+}
+
 .history-section h1 {
     margin-bottom: 0.5rem;
 }

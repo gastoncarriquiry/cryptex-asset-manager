@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import "./GraphBuy.css";
-import { coinList } from "../../features/transactionSlice";
-import { toast } from "react-toastify";
 import { Orbit } from "@uiball/loaders";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -15,29 +13,11 @@ const GraphBuy = () => {
   const [isLoading, setIsLoading] = useState(false);
   const coins = useSelector((state) => state.transaction.coinList);
   const transactions = useSelector((state) => state.transaction.transactions);
-  const apiKey = localStorage.getItem("key");
-  const userId = localStorage.getItem("id");
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (coins.length !== 0) {
-      setCoinNames(coins.map((coin) => coin.nombre));
-    } else {
-      fetch(`https://crypto.develotion.com/monedas.php`, {
-        method: "GET",
-        headers: {
-          apikey: apiKey,
-          "Content-Type": "application/json",
-        },
-        redirect: "follow",
-      })
-        .then((r) => r.json())
-        .then((r) => {
-          let coins = r.monedas.slice();
-          dispatch(coinList(coins));
-          setCoinNames(r.monedas.map((coin) => coin.nombre));
-        });
-    }
+    setIsLoading(true);
+    setCoinNames(coins.map((coin) => coin.nombre));
+
     let vintereum = 0;
     let pesocoin = 0;
     let monereum = 0;
@@ -47,130 +27,55 @@ const GraphBuy = () => {
     let guitchain = 0;
     let moneyToken = 0;
     let mdg = 0;
-    if (transactions.length !== 0) {
-      transactions.forEach((transaction) => {
-        let totalAmmount = transaction.valorActual * transaction.cantidad;
-        if (transaction.tipoOperacion === 1) {
-          switch (transaction.moneda) {
-            case 1:
-              vintereum += totalAmmount;
-              break;
-            case 2:
-              pesocoin += totalAmmount;
-              break;
-            case 3:
-              monereum += totalAmmount;
-              break;
-            case 4:
-              financeUru += totalAmmount;
-              break;
-            case 5:
-              mvdCoin += totalAmmount;
-              break;
-            case 6:
-              hexagon += totalAmmount;
-              break;
-            case 7:
-              guitchain += totalAmmount;
-              break;
-            case 8:
-              moneyToken += totalAmmount;
-              break;
-            case 9:
-              mdg += totalAmmount;
-              break;
-            default:
-              break;
-          }
+    transactions.forEach((transaction) => {
+      let totalAmmount = transaction.valorActual * transaction.cantidad;
+      if (transaction.tipoOperacion === 1) {
+        switch (transaction.moneda) {
+          case 1:
+            vintereum += totalAmmount;
+            break;
+          case 2:
+            pesocoin += totalAmmount;
+            break;
+          case 3:
+            monereum += totalAmmount;
+            break;
+          case 4:
+            financeUru += totalAmmount;
+            break;
+          case 5:
+            mvdCoin += totalAmmount;
+            break;
+          case 6:
+            hexagon += totalAmmount;
+            break;
+          case 7:
+            guitchain += totalAmmount;
+            break;
+          case 8:
+            moneyToken += totalAmmount;
+            break;
+          case 9:
+            mdg += totalAmmount;
+            break;
+          default:
+            break;
         }
-      });
-      setData([
-        vintereum,
-        pesocoin,
-        monereum,
-        financeUru,
-        mvdCoin,
-        hexagon,
-        guitchain,
-        moneyToken,
-        mdg,
-      ]);
-    } else {
-      setIsLoading(true);
-      fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
-        headers: {
-          apikey: apiKey,
-          "Content-Type": "application/json",
-        },
-      })
-        .then((r) => r.json())
-        .then((r) => {
-          if (r.codigo === 200) {
-            transactions.forEach((transaction) => {
-              let totalAmmount = transaction.valorActual * transaction.cantidad;
-              if (transaction.tipoOperacion === 1) {
-                switch (transaction.moneda) {
-                  case 1:
-                    vintereum += totalAmmount;
-                    break;
-                  case 2:
-                    pesocoin += totalAmmount;
-                    break;
-                  case 3:
-                    monereum += totalAmmount;
-                    break;
-                  case 4:
-                    financeUru += totalAmmount;
-                    break;
-                  case 5:
-                    mvdCoin += totalAmmount;
-                    break;
-                  case 6:
-                    hexagon += totalAmmount;
-                    break;
-                  case 7:
-                    guitchain += totalAmmount;
-                    break;
-                  case 8:
-                    moneyToken += totalAmmount;
-                    break;
-                  case 9:
-                    mdg += totalAmmount;
-                    break;
-                  default:
-                    break;
-                }
-              }
-            });
-            setData([
-              vintereum,
-              pesocoin,
-              monereum,
-              financeUru,
-              mvdCoin,
-              hexagon,
-              guitchain,
-              moneyToken,
-              mdg,
-            ]);
-          } else {
-            toast.error(
-              "¡Oh no! No pudimos recuperar sus transacciones. Inténtelo de nuevo más tarde.",
-              {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              }
-            );
-          }
-        })
-        .finally(setIsLoading(false));
-    }
-  }, [apiKey, coins, transactions, userId]);
+      }
+    });
+    setData([
+      vintereum,
+      pesocoin,
+      monereum,
+      financeUru,
+      mvdCoin,
+      hexagon,
+      guitchain,
+      moneyToken,
+      mdg,
+    ]);
+    setIsLoading(false);
+  }, [coins, transactions]);
 
   return (
     <section className="graph-buy">

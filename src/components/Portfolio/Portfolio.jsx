@@ -15,64 +15,24 @@ const Portfolio = () => {
   const transactionList = useSelector((state) => state.transaction.transactions);
 
   useEffect(() => {
+    setIsLoading(true);
     let totalP = 0;
     let totalS = 0;
     let total = 0;
-    if (transactionList.length !== 0) {
-      transactionList.forEach((transaction) => {
-        let totalAmmount = transaction.valorActual * transaction.cantidad;
-        if (transaction.tipoOperacion === 1) {
-          totalP += totalAmmount;
-          total += totalAmmount;
-        } else {
-          totalS += totalAmmount;
-          total -= totalAmmount;
-        }
-      });
-      setTotalInvested(total);
-      setTotalPurchase(totalP);
-      setTotalSales(totalS);
-    } else {
-      setIsLoading(true);
-      fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
-        headers: {
-          apikey: apiKey,
-          "Content-Type": "application/json",
-        },
-      })
-        .then((r) => r.json())
-        .then((r) => {
-          if (r.codigo === 200) {
-            r.transacciones.forEach((transaction) => {
-              let totalAmmount = transaction.valorActual * transaction.cantidad;
-              if (transaction.tipoOperacion === 1) {
-                totalP += totalAmmount;
-                total += totalAmmount;
-              } else {
-                totalS += totalAmmount;
-                total -= totalAmmount;
-              }
-              setTotalInvested(total);
-              setTotalPurchase(totalP);
-              setTotalSales(totalS);
-            });
-          } else {
-            toast.error(
-              "¡Oh no! No pudimos recuperar el monto de sus transacciones. Inténtelo de nuevo más tarde.",
-              {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              }
-            );
-          }
-        })
-        .finally(setIsLoading(false));
-    }
+    transactionList.forEach((transaction) => {
+      let totalAmmount = transaction.valorActual * transaction.cantidad;
+      if (transaction.tipoOperacion === 1) {
+        totalP += totalAmmount;
+        total += totalAmmount;
+      } else {
+        totalS += totalAmmount;
+        total -= totalAmmount;
+      }
+    });
+    setTotalInvested(total);
+    setTotalPurchase(totalP);
+    setTotalSales(totalS);
+    setIsLoading(false);
   }, [apiKey, userId, transactionList]);
 
   return (

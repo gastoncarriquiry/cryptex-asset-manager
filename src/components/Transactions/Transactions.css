@@ -16,6 +16,7 @@
     row-gap: 0.5rem;
     padding: 2em 1.5em;
     box-sizing: border-box;
+    position: relative;
 }
 
 .transactions-section>div .operation-type {
@@ -71,4 +72,22 @@
 .transactions-section>div .coin-value p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+}
+
+.transactions-section .loader {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(231, 229, 223, 0.75);
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
 }

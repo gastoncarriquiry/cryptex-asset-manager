@@ -18,101 +18,17 @@ const History = () => {
   const coinList = useSelector((state) => state.transaction.coinList);
 
   useEffect(() => {
-    if (transactionList.length === 0) {
-      setIsLoading(true);
-      fetch(`https://crypto.develotion.com/transacciones.php?idUsuario=${userId}`, {
-        headers: {
-          apikey: apiKey,
-          "Content-Type": "application/json",
-        },
+    setIsLoading(true);
+    setTransactions(
+      transactionList.map((transaction) => {
+        let coinName;
+        coinList.forEach((coin) => {
+          if (coin.id === transaction.moneda) return (coinName = coin.nombre);
+        });
+        return { ...transaction, moneda: coinName };
       })
-        .then((r) => r.json())
-        .then((r) => {
-          if (r.codigo === 200) {
-            if (coinList.length > 1) {
-              setTransactions(
-                r.transacciones.map((transaction) => {
-                  let coinName;
-                  coinList.forEach((coin) => {
-                    if (coin.id === transaction.moneda) return (coinName = coin.nombre);
-                  });
-                  return { ...transaction, moneda: coinName };
-                })
-              );
-            } else {
-              fetch(`https://crypto.develotion.com/monedas.php`, {
-                method: "GET",
-                headers: {
-                  apikey: apiKey,
-                  "Content-Type": "application/json",
-                },
-                redirect: "follow",
-              })
-                .then((res) => res.json())
-                .then((res) => {
-                  setTransactions(
-                    r.transacciones.map((transaction) => {
-                      let coinName;
-                      res.monedas.forEach((coin) => {
-                        if (coin.id === transaction.moneda) return (coinName = coin.nombre);
-                      });
-                      return { ...transaction, moneda: coinName };
-                    })
-                  );
-                });
-            }
-            let transactions = r.transacciones.slice();
-            dispatch(transactionsReducer(transactions));
-          } else {
-            toast.error(
-              "¡Oh no! No pudimos recuperar sus transacciones. Inténtelo de nuevo más tarde.",
-              {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              }
-            );
-          }
-        })
-        .finally(setIsLoading(false));
-    } else {
-      if (coinList.length > 1) {
-        setTransactions(
-          transactionList.map((transaction) => {
-            let coinName;
-            coinList.forEach((coin) => {
-              if (coin.id === transaction.moneda) return (coinName = coin.nombre);
-            });
-            return { ...transaction, moneda: coinName };
-          })
-        );
-      } else {
-        fetch(`https://crypto.develotion.com/monedas.php`, {
-          method: "GET",
-          headers: {
-            apikey: apiKey,
-            "Content-Type": "application/json",
-          },
-          redirect: "follow",
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            setTransactions(
-              transactionList.map((transaction) => {
-                let coinName;
-                res.monedas.forEach((coin) => {
-                  if (coin.id === transaction.moneda) return (coinName = coin.nombre);
-                });
-                return { ...transaction, moneda: coinName };
-              })
-            );
-          });
-      }
-    }
+    );
+    setIsLoading(false);
   }, [userId, apiKey, coinList, transactionList]);
 
   return (

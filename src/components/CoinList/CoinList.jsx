@@ -14,26 +14,9 @@ const CoinList = () => {
   const storedCoins = useSelector((state) => state.transaction.coinList);
 
   useEffect(() => {
-    if (storedCoins.length === 0) {
-      fetch(`https://crypto.develotion.com/monedas.php`, {
-        method: "GET",
-        headers: {
-          apikey: apiKey,
-          "Content-Type": "application/json",
-        },
-        redirect: "follow",
-      })
-        .then((r) => r.json())
-        .then((r) => {
-          setCoins(r.monedas);
-          let coins = r.monedas.slice();
-          dispatch(coinList(coins));
-        });
-    } else {
-      let coins = storedCoins.slice();
-      setCoins(coins);
-    }
-  }, [apiKey, storedCoins]);
+    let coins = storedCoins.slice();
+    setCoins(coins);
+  }, [storedCoins]);
 
   const searchResults = () => {
     setSearchQuery(query.current.value);
