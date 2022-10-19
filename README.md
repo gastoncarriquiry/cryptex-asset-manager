@@ -15,6 +15,7 @@ Disclaimer: Cryptex does not actually operates with cryptocurrencies. It consume
 [![react-chartjs-2](https://img.shields.io/badge/react--chartjs--2-%5E4.3.1-ff69b4)](https://react-chartjs-2.js.org/)
 [![react-toastify](https://img.shields.io/badge/react--toastify-%5E9.0.8-blueviolet)](https://fkhadra.github.io/react-toastify/introduction)
 [![react-icons](https://img.shields.io/badge/react--icons-%5E4.4.0-lightgrey)](https://react-icons.github.io/react-icons)
+[![@uiball/loaders](https://img.shields.io/badge/%40uiball%2Floaders-%5E1.2.6-black)](https://uiball.com/loaders/)
 
 ## Live View
 [Running website](https://cryptexam.vercel.app/)
