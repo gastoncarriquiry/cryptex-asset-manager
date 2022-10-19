@@ -1,7 +1,7 @@
 .history-section {
-    padding: 0 1em;
+    padding: 1em;
+    padding-bottom: 1.5em;
     box-sizing: border-box;
-    height: 20vh !important;
 }
 
 .history-section h1 {

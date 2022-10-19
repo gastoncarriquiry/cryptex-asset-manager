@@ -2,15 +2,17 @@ import CoinList from "../CoinList/CoinList";
 import Button from "../Button/Button";
 import "./Transactions.css";
 import { useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { addTransaction } from "../../features/transactionSlice";
 
 const Transactions = () => {
   document.title = "Operar | Cryptex";
-
+  const dispatch = useDispatch();
   const ammount = useRef(null);
   const operationType = useRef(null);
   const selectedCoin = useSelector((state) => state.transaction.coin);
+  const transactionList = useSelector((state) => state.transaction.transactions);
   const apiKey = localStorage.getItem("key");
   const userId = localStorage.getItem("id");
 
@@ -44,6 +46,17 @@ const Transactions = () => {
               draggable: true,
               progress: undefined,
             });
+            if (transactionList.length !== 0) {
+              dispatch(
+                addTransaction({
+                  idUsuario: userId,
+                  tipoOperacion: operationType.current.value,
+                  moneda: selectedCoin.id,
+                  cantidad: Math.round(ammount.current.value),
+                  valorActual: selectedCoin.value,
+                })
+              );
+            }
             ammount.current.value = "";
           } else {
             toast.error("¡Oh no! Algo salió mal. Inténtelo de nuevo más tarde.", {

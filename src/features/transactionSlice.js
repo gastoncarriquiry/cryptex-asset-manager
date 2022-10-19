@@ -20,9 +20,13 @@ export const transactionSlice = createSlice({
     transactionsReducer: (state, action) => {
       state.transactions = action.payload;
     },
+    addTransaction: (state, action) => {
+      state.transactions.push(action.payload);
+    },
   },
 });
 
-export const { selectedCoin, coinList, transactionsReducer } = transactionSlice.actions;
+export const { selectedCoin, coinList, transactionsReducer, addTransaction } =
+  transactionSlice.actions;
 
 export default transactionSlice.reducer;
