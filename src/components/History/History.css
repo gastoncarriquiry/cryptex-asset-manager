@@ -8,6 +8,24 @@
     margin-bottom: 0.5rem;
 }
 
+.history-section h2 {
+    font-size: 1rem;
+    margin-top: 2rem;
+    color: var(--primary-color);
+}
+
+.history-section .empty {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-section h1 {
+    margin-bottom: 0.5rem;
+}
+
 .history-section table {
     border-radius: 0.5rem;
     border: 1px solid var(--text-color);

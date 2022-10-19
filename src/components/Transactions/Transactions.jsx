@@ -44,6 +44,7 @@ const Transactions = () => {
               draggable: true,
               progress: undefined,
             });
+            ammount.current.value = "";
           } else {
             toast.error("¡Oh no! Algo salió mal. Inténtelo de nuevo más tarde.", {
               position: "bottom-right",

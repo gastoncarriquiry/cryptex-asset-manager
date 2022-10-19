@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   coin: {},
   coinList: [],
+  transactions: [],
 };
 
 //IMMER
@@ -16,9 +17,12 @@ export const transactionSlice = createSlice({
     coinList: (state, action) => {
       state.coinList = action.payload;
     },
+    transactionsReducer: (state, action) => {
+      state.transactions = action.payload;
+    },
   },
 });
 
-export const { selectedCoin, coinList } = transactionSlice.actions;
+export const { selectedCoin, coinList, transactionsReducer } = transactionSlice.actions;
 
 export default transactionSlice.reducer;
